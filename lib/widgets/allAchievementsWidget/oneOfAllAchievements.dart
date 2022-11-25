@@ -31,18 +31,24 @@ class OneOfAllAchievement extends StatelessWidget {
           decoration: BoxDecoration(
               border: Border.all(
                 width: 1,
-                color: const Color.fromARGB(255, 15, 100, 50),
+                color: value.isDarkTheme == 1
+                    ? const Color.fromARGB(255, 15, 100, 50)
+                    : Colors.black,
               ),
-              color: const Color.fromARGB(255, 18, 18, 18),
+              color: value.isDarkTheme == 1
+                  ? const Color.fromARGB(255, 18, 18, 18)
+                  : Colors.blue.shade700,
               borderRadius: BorderRadius.circular(15)),
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           margin: const EdgeInsets.all(7),
           child: Row(
             children: [
               Text(
                 cat,
-                style: const TextStyle(
-                  color: Color.fromARGB(255, 130, 44, 44),
+                style: TextStyle(
+                  color: value.isDarkTheme == 1
+                      ? Color.fromARGB(255, 130, 44, 44)
+                      : Colors.brown.shade900,
                   fontSize: 20,
                   decoration: TextDecoration.none,
                 ),
@@ -73,9 +79,11 @@ class OneOfAllAchievement extends StatelessWidget {
                           child: Text(
                             noteText,
                             style: GoogleFonts.tajawal(
-                              textStyle: const TextStyle(
+                              textStyle: TextStyle(
                                 overflow: TextOverflow.ellipsis,
-                                color: Color.fromARGB(255, 59, 133, 59),
+                                color: value.isDarkTheme == 1
+                                    ? const Color.fromARGB(255, 59, 133, 59)
+                                    : Colors.black,
                                 fontSize: 14,
                                 letterSpacing: .5,
                               ),
@@ -94,7 +102,9 @@ class OneOfAllAchievement extends StatelessWidget {
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 1.2,
-                          color: Colors.grey.shade500,
+                          color: value.isDarkTheme == 1
+                              ? Colors.grey.shade500
+                              : Colors.black,
                         ),
                         color: Colors.brown.shade800,
                         borderRadius: BorderRadius.circular(14),
@@ -105,7 +115,9 @@ class OneOfAllAchievement extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 12,
                             decoration: TextDecoration.none,
-                            color: Colors.grey.shade400,
+                            color: value.isDarkTheme == 1
+                                ? Colors.grey.shade400
+                                : Colors.black,
                           ),
                         ),
                       ),

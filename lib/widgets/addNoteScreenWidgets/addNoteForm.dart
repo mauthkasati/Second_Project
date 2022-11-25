@@ -30,7 +30,9 @@ class AddNoteForm extends StatelessWidget {
           width: w * 5 / 6,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: const Color.fromARGB(255, 18, 18, 18),
+            color: value.isDarkTheme == 1
+                ? const Color.fromARGB(255, 18, 18, 18)
+                : Colors.blue.shade700,
           ),
           child: Column(
             children: [
@@ -40,7 +42,9 @@ class AddNoteForm extends StatelessWidget {
                   ' :  التصنيف',
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.grey.shade600,
+                    color: value.isDarkTheme == 1
+                        ? Colors.grey.shade600
+                        : Colors.black,
                   ),
                 ),
               ),
@@ -49,7 +53,9 @@ class AddNoteForm extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border.all(
                     width: 1,
-                    color: Colors.grey.shade600,
+                    color: value.isDarkTheme == 1
+                        ? Colors.grey.shade600
+                        : Colors.black,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -60,7 +66,9 @@ class AddNoteForm extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.grey.shade400,
+                    color: value.isDarkTheme == 1
+                        ? Colors.grey.shade600
+                        : Colors.black,
                     decoration: TextDecoration.none,
                   ),
                 ),
@@ -103,7 +111,9 @@ class AddNoteForm extends StatelessWidget {
                   ' : رقم الآية',
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.grey.shade600,
+                    color: value.isDarkTheme == 1
+                        ? Colors.grey.shade600
+                        : Colors.black,
                   ),
                 ),
               ),
@@ -112,7 +122,9 @@ class AddNoteForm extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 1,
-                      color: Colors.grey.shade600,
+                      color: value.isDarkTheme == 1
+                          ? Colors.grey.shade600
+                          : Colors.black,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -123,7 +135,9 @@ class AddNoteForm extends StatelessWidget {
                       '$ind',
                       style: TextStyle(
                         fontSize: 14,
-                        color: Colors.grey.shade600,
+                        color: value.isDarkTheme == 1
+                            ? Colors.grey.shade600
+                            : Colors.black,
                       ),
                     ),
                   )),
@@ -133,7 +147,9 @@ class AddNoteForm extends StatelessWidget {
                   ' : اكتب ملاحظتك',
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.grey.shade600,
+                    color: value.isDarkTheme == 1
+                        ? Colors.grey.shade600
+                        : Colors.black,
                   ),
                 ),
               ),
@@ -144,7 +160,9 @@ class AddNoteForm extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border.all(
                     width: 1,
-                    color: Colors.grey.shade600,
+                    color: value.isDarkTheme == 1
+                        ? Colors.grey.shade600
+                        : Colors.black,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -154,14 +172,18 @@ class AddNoteForm extends StatelessWidget {
                   maxLines: 20,
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.grey.shade400,
+                    color: value.isDarkTheme == 1
+                        ? Colors.grey.shade600
+                        : Colors.black,
                     decoration: TextDecoration.none,
                   ),
                 ),
               ),
               const SizedBox(height: 15),
               FloatingActionButton(
-                backgroundColor: const Color.fromARGB(255, 18, 18, 18),
+                backgroundColor: value.isDarkTheme == 1
+                    ? const Color.fromARGB(255, 18, 18, 18)
+                    : Colors.blue.shade300,
                 onPressed: () async {
                   int response = await SqlHelper.dbh.insertData(
                     """
@@ -226,7 +248,9 @@ class AddNoteForm extends StatelessWidget {
                 },
                 child: Icon(
                   Icons.add,
-                  color: Colors.grey.shade500,
+                  color: value.isDarkTheme == 1
+                      ? Colors.grey.shade600
+                      : Colors.black,
                   size: 35,
                 ),
               ),

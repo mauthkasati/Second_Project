@@ -22,7 +22,9 @@ class OneNoteScreen extends StatelessWidget {
     return Consumer<MainScreenProvider>(
       builder: ((context, value, child) {
         return Scaffold(
-          backgroundColor: Colors.grey.shade900,
+          backgroundColor: value.isDarkTheme == 1
+              ? Colors.grey.shade900
+              : Colors.green.shade200,
           body: SingleChildScrollView(
             child: Column(
               children: [
@@ -36,7 +38,9 @@ class OneNoteScreen extends StatelessWidget {
                         Text(
                           'ملاحظة على سورة ${quran.getSurahNameArabic(value.numOfCurrent)}',
                           style: TextStyle(
-                            color: Colors.grey.shade400,
+                            color: value.isDarkTheme == 1
+                                ? Colors.grey.shade400
+                                : Colors.black,
                             fontSize: 18,
                           ),
                         ),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gsg_second_project/providers/mainScreenProvider.dart';
 import 'package:provider/provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Dones extends StatelessWidget {
   @override
@@ -27,10 +28,14 @@ class Dones extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border.all(
               width: 1,
-              color: const Color.fromARGB(255, 15, 100, 50),
+              color: value.isDarkTheme == 1
+                  ? const Color.fromARGB(255, 15, 100, 50)
+                  : Colors.blue.shade900,
             ),
             borderRadius: BorderRadius.circular(15),
-            color: Color.fromARGB(255, 18, 18, 18),
+            color: value.isDarkTheme == 1
+                ? Color.fromARGB(255, 18, 18, 18)
+                : Colors.blue.shade300,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -41,17 +46,21 @@ class Dones extends StatelessWidget {
                   height: 13,
                   width: 25,
                   decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Colors.black),
                     borderRadius: BorderRadius.circular(7),
-                    color: Colors.grey.shade800,
+                    color: value.isDarkTheme == 1
+                        ? Colors.grey.shade800
+                        : Colors.grey.shade300,
                   ),
-                  child: Align(
-                    alignment: Alignment.center,
+                  child: Center(
                     child: Text(
                       value.numSession.toString(),
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 11,
                         decoration: TextDecoration.none,
-                        color: Colors.grey.shade500,
+                        color: value.isDarkTheme == 1
+                            ? Colors.grey.shade500
+                            : Colors.black,
                       ),
                     ),
                   ),
@@ -63,20 +72,30 @@ class Dones extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    'الانجازات',
+                    'achievements'.tr(),
                     style: TextStyle(
                       fontSize: 14,
                       decoration: TextDecoration.none,
-                      color: Colors.grey.shade500,
+                      color: value.isDarkTheme == 1
+                          ? Colors.grey.shade500
+                          : Colors.black,
                     ),
                   ),
+                  SizedBox(
+                    height: (context.locale == const Locale('en')) ? 0 : 5,
+                  ),
                   Text(
-                    'استمر بالمزيد من الانجازات',
+                    'continueAch'.tr(),
                     style: TextStyle(
                       fontSize: 11,
                       decoration: TextDecoration.none,
-                      color: Colors.grey.shade500,
+                      color: value.isDarkTheme == 1
+                          ? Colors.grey.shade500
+                          : Colors.black,
                     ),
+                  ),
+                  SizedBox(
+                    height: (context.locale == const Locale('en')) ? 0 : 5,
                   ),
                   Row(
                     children: [
@@ -84,18 +103,22 @@ class Dones extends StatelessWidget {
                         height: 13,
                         width: greyWidth,
                         decoration: BoxDecoration(
+                          border: Border.all(width: 1, color: Colors.black),
                           borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(7),
                             topLeft: Radius.circular(7),
                           ),
-                          color: Colors.grey.shade800,
+                          color: value.isDarkTheme == 1
+                              ? Colors.grey.shade800
+                              : Colors.grey.shade300,
                         ),
                       ),
                       Container(
                         height: 13,
                         width: greenWidth,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 1, color: Colors.black),
+                          borderRadius: const BorderRadius.only(
                             bottomRight: Radius.circular(7),
                             topRight: Radius.circular(7),
                           ),

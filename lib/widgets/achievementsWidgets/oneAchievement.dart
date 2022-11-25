@@ -7,6 +7,7 @@ import 'package:gsg_second_project/providers/mainScreenProvider.dart';
 import 'package:gsg_second_project/screens/oneNoteScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/surah_data.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class OneAchievement extends StatelessWidget {
   final int id;
@@ -27,9 +28,13 @@ class OneAchievement extends StatelessWidget {
           decoration: BoxDecoration(
               border: Border.all(
                 width: 1,
-                color: const Color.fromARGB(255, 15, 100, 50),
+                color: value.isDarkTheme == 1
+                    ? const Color.fromARGB(255, 15, 100, 50)
+                    : Colors.black,
               ),
-              color: const Color.fromARGB(255, 18, 18, 18),
+              color: value.isDarkTheme == 1
+                  ? const Color.fromARGB(255, 18, 18, 18)
+                  : Colors.blue.shade700,
               borderRadius: BorderRadius.circular(15)),
           padding: EdgeInsets.all(20),
           margin: const EdgeInsets.all(7),
@@ -37,8 +42,10 @@ class OneAchievement extends StatelessWidget {
             children: [
               Text(
                 suarh,
-                style: const TextStyle(
-                  color: Color.fromARGB(255, 130, 44, 44),
+                style: TextStyle(
+                  color: value.isDarkTheme == 1
+                      ? const Color.fromARGB(255, 130, 44, 44)
+                      : Colors.brown.shade900,
                   fontSize: 18,
                   decoration: TextDecoration.none,
                 ),
@@ -50,9 +57,11 @@ class OneAchievement extends StatelessWidget {
                     Text(
                       verse,
                       style: GoogleFonts.tajawal(
-                        textStyle: const TextStyle(
+                        textStyle: TextStyle(
                           decoration: TextDecoration.none,
-                          color: Color.fromARGB(255, 59, 133, 59),
+                          color: value.isDarkTheme == 1
+                              ? const Color.fromARGB(255, 59, 133, 59)
+                              : Colors.black,
                           fontSize: 14,
                           letterSpacing: .5,
                         ),
@@ -68,7 +77,9 @@ class OneAchievement extends StatelessWidget {
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 1.5,
-                          color: Colors.grey.shade500,
+                          color: value.isDarkTheme == 1
+                              ? Colors.grey.shade500
+                              : Colors.black,
                         ),
                         color: const Color.fromARGB(255, 59, 133, 59),
                         borderRadius: BorderRadius.circular(30),
@@ -80,7 +91,9 @@ class OneAchievement extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
-                            color: Colors.grey.shade900,
+                            color: value.isDarkTheme == 1
+                                ? Colors.grey.shade900
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -95,9 +108,13 @@ class OneAchievement extends StatelessWidget {
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 1.2,
-                          color: Colors.grey.shade500,
+                          color: value.isDarkTheme == 1
+                              ? Colors.grey.shade500
+                              : Colors.black,
                         ),
-                        color: Colors.brown.shade800,
+                        color: value.isDarkTheme == 1
+                            ? Colors.brown.shade800
+                            : Colors.brown.shade500,
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: Center(
@@ -106,7 +123,9 @@ class OneAchievement extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 12,
                             decoration: TextDecoration.none,
-                            color: Colors.grey.shade400,
+                            color: value.isDarkTheme == 1
+                                ? Colors.grey.shade400
+                                : Colors.black,
                           ),
                         ),
                       ),

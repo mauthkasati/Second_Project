@@ -22,7 +22,9 @@ class AddNoteScreen extends StatelessWidget {
       builder: ((context, value, child) {
         String name = quran.getSurahNameArabic(value.numOfCurrent);
         return Scaffold(
-          backgroundColor: Colors.grey.shade900,
+          backgroundColor: value.isDarkTheme == 1
+              ? Colors.grey.shade900
+              : Colors.green.shade200,
           body: SingleChildScrollView(
             child: Column(
               children: [
@@ -31,9 +33,12 @@ class AddNoteScreen extends StatelessWidget {
                 Text(
                   'سورة $name',
                   style: TextStyle(
-                      fontSize: 18,
-                      decoration: TextDecoration.none,
-                      color: Colors.grey.shade500),
+                    fontSize: 18,
+                    decoration: TextDecoration.none,
+                    color: value.isDarkTheme == 1
+                        ? Colors.grey.shade500
+                        : Colors.black,
+                  ),
                 ),
                 AddNoteForm(ind),
               ],

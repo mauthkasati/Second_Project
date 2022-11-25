@@ -29,7 +29,9 @@ class UpdateNoteScreen extends StatelessWidget {
     return Consumer<MainScreenProvider>(
       builder: ((context, value, child) {
         return Scaffold(
-          backgroundColor: Colors.grey.shade900,
+          backgroundColor: value.isDarkTheme == 1
+              ? Colors.grey.shade900
+              : Colors.green.shade200,
           body: SingleChildScrollView(
             child: Column(
               children: [
@@ -43,7 +45,10 @@ class UpdateNoteScreen extends StatelessWidget {
                         Text(
                           'عدل ملاحظاتك على سورة ${quran.getSurahNameArabic(value.numOfCurrent)}',
                           style: TextStyle(
-                              fontSize: 16, color: Colors.grey.shade50),
+                              fontSize: 16,
+                              color: value.isDarkTheme == 1
+                                  ? Colors.grey.shade50
+                                  : Colors.black),
                         ),
                         UpdateForm(verseID, cat, noteText, sID),
                       ],

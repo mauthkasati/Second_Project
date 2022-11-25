@@ -33,7 +33,9 @@ class BodyOfOneNoteScreen extends StatelessWidget {
           width: w * 5 / 6,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: const Color.fromARGB(255, 18, 18, 18),
+            color: value.isDarkTheme == 1
+                ? const Color.fromARGB(255, 18, 18, 18)
+                : Colors.blue.shade700,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +46,9 @@ class BodyOfOneNoteScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: const Color.fromARGB(255, 15, 100, 50),
+                    color: value.isDarkTheme == 1
+                        ? const Color.fromARGB(255, 15, 100, 50)
+                        : Colors.black,
                   ),
                 ),
                 child: Center(
@@ -52,7 +56,9 @@ class BodyOfOneNoteScreen extends StatelessWidget {
                     'التصنيف : $cat',
                     style: TextStyle(
                       fontSize: 13,
-                      color: Colors.grey.shade600,
+                      color: value.isDarkTheme == 1
+                          ? Colors.grey.shade600
+                          : Colors.black,
                     ),
                   ),
                 ),
@@ -64,7 +70,9 @@ class BodyOfOneNoteScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: const Color.fromARGB(255, 15, 100, 50),
+                    color: value.isDarkTheme == 1
+                        ? const Color.fromARGB(255, 15, 100, 50)
+                        : Colors.black,
                   ),
                 ),
                 child: Center(
@@ -72,7 +80,9 @@ class BodyOfOneNoteScreen extends StatelessWidget {
                     'رقم الاية : $verseID',
                     style: TextStyle(
                       fontSize: 13,
-                      color: Colors.grey.shade600,
+                      color: value.isDarkTheme == 1
+                          ? Colors.grey.shade600
+                          : Colors.black,
                     ),
                   ),
                 ),
@@ -88,7 +98,9 @@ class BodyOfOneNoteScreen extends StatelessWidget {
                       ' : الملاحظة',
                       style: TextStyle(
                         fontSize: 14,
-                        color: Colors.grey.shade600,
+                        color: value.isDarkTheme == 1
+                            ? Colors.grey.shade600
+                            : Colors.black,
                       ),
                     ),
                   ),
@@ -104,7 +116,9 @@ class BodyOfOneNoteScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border.all(
                     width: 1,
-                    color: const Color.fromARGB(255, 15, 100, 50),
+                    color: value.isDarkTheme == 1
+                        ? const Color.fromARGB(255, 15, 100, 50)
+                        : Colors.black,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -115,7 +129,9 @@ class BodyOfOneNoteScreen extends StatelessWidget {
                     style: TextStyle(
                       decoration: TextDecoration.none,
                       fontSize: 14,
-                      color: Colors.grey.shade600,
+                      color: value.isDarkTheme == 1
+                          ? Colors.grey.shade600
+                          : Colors.black,
                     ),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 50,
@@ -127,7 +143,9 @@ class BodyOfOneNoteScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   FloatingActionButton(
-                    backgroundColor: const Color.fromARGB(255, 18, 18, 18),
+                    backgroundColor: value.isDarkTheme == 1
+                        ? const Color.fromARGB(255, 18, 18, 18)
+                        : Colors.blue.shade300,
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -139,13 +157,17 @@ class BodyOfOneNoteScreen extends StatelessWidget {
                     },
                     child: Icon(
                       Icons.update,
-                      color: Colors.grey.shade500,
+                      color: value.isDarkTheme == 1
+                          ? Colors.grey.shade500
+                          : Colors.black,
                       size: 35,
                     ),
                   ),
                   SizedBox(width: w / 8),
                   FloatingActionButton(
-                    backgroundColor: const Color.fromARGB(255, 18, 18, 18),
+                    backgroundColor: value.isDarkTheme == 1
+                        ? const Color.fromARGB(255, 18, 18, 18)
+                        : Colors.blue.shade300,
                     onPressed: () async {
                       await SqlHelper.dbh.deleteData("""
                                           delete from notes 
@@ -201,7 +223,9 @@ class BodyOfOneNoteScreen extends StatelessWidget {
                     },
                     child: Icon(
                       Icons.delete,
-                      color: Colors.grey.shade500,
+                      color: value.isDarkTheme == 1
+                          ? Colors.grey.shade500
+                          : Colors.black,
                       size: 35,
                     ),
                   ),
