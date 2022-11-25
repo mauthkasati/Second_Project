@@ -34,10 +34,10 @@ class TextOfSurah extends StatelessWidget {
               child: TextButton(
                 style: const ButtonStyle(),
                 onPressed: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => AddNoteScreen(),
+                      builder: (context) => AddNoteScreen(index + 1),
                     ),
                   );
                 },

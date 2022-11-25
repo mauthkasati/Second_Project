@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gsg_second_project/enums_lists_maps/categories.dart';
+import 'package:gsg_second_project/screens/deleteNoteScreen.dart';
 
 class OneOfDeletedItems extends StatelessWidget {
   @override
@@ -22,7 +23,26 @@ class OneOfDeletedItems extends StatelessWidget {
         children: [
           FloatingActionButton(
             backgroundColor: const Color.fromARGB(255, 18, 18, 18),
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: Center(child: Text("تم الحذف بنجاح")),
+                  content: Icon(
+                    Icons.check_circle_outline,
+                    size: 30,
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('حسناً'),
+                    ),
+                  ],
+                ),
+              );
+            },
             child: Icon(
               Icons.delete,
               color: Colors.grey.shade500,
@@ -41,19 +61,16 @@ class OneOfDeletedItems extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'قل اعوذ برب الناس',
-                    style: GoogleFonts.tajawal(
-                      textStyle: const TextStyle(
-                        color: Color.fromARGB(255, 59, 133, 59),
-                        fontSize: 14,
-                        letterSpacing: .5,
-                      ),
+                Text(
+                  'قل اعوذ برب الناس',
+                  style: GoogleFonts.tajawal(
+                    textStyle: const TextStyle(
+                      color: Color.fromARGB(255, 59, 133, 59),
+                      fontSize: 14,
+                      letterSpacing: .5,
                     ),
-                    overflow: TextOverflow.ellipsis,
                   ),
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(
                   width: 10,

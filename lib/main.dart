@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:gsg_second_project/providers/mainScreenProvider.dart';
 import 'package:gsg_second_project/providers/p.dart';
 import 'package:gsg_second_project/screens/AllAchievements.dart';
 import 'package:gsg_second_project/screens/aboutSurah.dart';
@@ -13,15 +14,21 @@ import 'package:gsg_second_project/screens/mainScreen.dart';
 import 'package:gsg_second_project/screens/oneNoteScreen.dart';
 import 'package:gsg_second_project/screens/readSurah.dart';
 import 'package:gsg_second_project/screens/updateNoteScreen.dart';
+import 'package:gsg_second_project/sqlHelper.dart';
 import 'package:gsg_second_project/widgets/updateNoteScreenWidgets/updateForm.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/quran.dart' as quran;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SqlHelper.dbh.initDB();
   runApp(
     MultiProvider(
       providers: [
         Provider(create: (context) => P()),
+        ChangeNotifierProvider(
+          create: (context) => MainScreenProvider(),
+        ),
       ],
       child: const MyApp(),
     ),
@@ -40,7 +47,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: FirstScreen(),
     );
   }
 }

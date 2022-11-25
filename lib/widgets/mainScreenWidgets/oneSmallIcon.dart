@@ -2,20 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OneSmallIcon extends StatelessWidget {
-  IconData? iconData;
-  String text = '';
-  Color? c;
-  OneSmallIcon(IconData i, String t, Color s, {super.key}) {
-    iconData = i;
-    text = t;
-    c = s;
-  }
+  final IconData iconData;
+  final String text;
+  final Color c;
+  OneSmallIcon(this.iconData, this.text, this.c, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 24,
-      width: 48,
+      width: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Colors.black,
@@ -27,14 +23,17 @@ class OneSmallIcon extends StatelessWidget {
           Center(
             child: Icon(
               iconData,
-              size: 18,
+              size: 15,
               color: c,
             ),
+          ),
+          const SizedBox(
+            width: 4,
           ),
           Text(
             text,
             style: TextStyle(
-              fontSize: 8,
+              fontSize: 11,
               color: c,
               decoration: TextDecoration.none,
             ),

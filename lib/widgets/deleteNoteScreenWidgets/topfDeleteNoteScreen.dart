@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gsg_second_project/screens/done.dart';
+import 'package:gsg_second_project/screens/deleteNoteScreen.dart';
 import 'package:gsg_second_project/screens/mainScreen.dart';
 
 class TopOfDeleteNoteScreen extends StatelessWidget {
@@ -22,10 +22,10 @@ class TopOfDeleteNoteScreen extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: TextButton(
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.pop(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MainScreen(),
+                    builder: (context) => DeleteNoteScreen(),
                   ),
                 );
               },

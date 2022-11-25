@@ -1,14 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gsg_second_project/screens/mainScreen.dart';
+import 'package:gsg_second_project/screens/updateNoteScreen.dart';
 
 class TopOfUpdateNoteScreen extends StatelessWidget {
+  final int verseID;
+  final String cat;
+  final String noteText;
+  final myController = TextEditingController();
+  final int sID;
+
+  TopOfUpdateNoteScreen(this.verseID, this.cat, this.noteText, this.sID,
+      {super.key});
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.only(bottom: 40),
+      margin: EdgeInsets.only(bottom: 30),
       padding: EdgeInsets.all(15),
       width: w,
       height: h / 7,
@@ -22,10 +31,11 @@ class TopOfUpdateNoteScreen extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: TextButton(
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.pop(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const MainScreen(),
+                    builder: (context) =>
+                        UpdateNoteScreen(verseID, cat, noteText, sID),
                   ),
                 );
               },

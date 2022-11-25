@@ -2,9 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gsg_second_project/screens/allAchievements.dart';
 import 'package:gsg_second_project/screens/mainScreen.dart';
+import 'package:gsg_second_project/screens/oneNoteScreen.dart';
 
 class TopOfOneNoteScreen extends StatelessWidget {
-  const TopOfOneNoteScreen({super.key});
+  final String cat;
+  final int verseID;
+  final String noteText;
+  final int sID;
+
+  const TopOfOneNoteScreen(this.cat, this.verseID, this.noteText, this.sID,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +32,11 @@ class TopOfOneNoteScreen extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: TextButton(
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.pop(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const AllAchievements(),
+                    builder: (context) =>
+                        OneNoteScreen(cat, verseID, noteText, sID),
                   ),
                 );
               },

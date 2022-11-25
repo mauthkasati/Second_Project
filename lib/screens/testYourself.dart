@@ -6,9 +6,27 @@ class TestYourself extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('test'),
+    return Scaffold(
+      body: Column(
+        children: [
+          const Center(
+            child: Text('test'),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.pop(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const TestYourself(),
+                ),
+              );
+            },
+            icon: Icon(
+              Icons.favorite,
+              size: 50,
+            ),
+          ),
+        ],
       ),
     );
   }

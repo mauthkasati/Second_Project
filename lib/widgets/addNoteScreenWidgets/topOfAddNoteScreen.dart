@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gsg_second_project/screens/addNoteScreen.dart';
 import 'package:gsg_second_project/screens/mainScreen.dart';
 
 class TopOfAddNoteScreen extends StatelessWidget {
+  final int ind;
+  const TopOfAddNoteScreen(this.ind, {super.key});
+
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
@@ -21,10 +25,10 @@ class TopOfAddNoteScreen extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: TextButton(
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.pop(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MainScreen(),
+                    builder: (context) => AddNoteScreen(ind),
                   ),
                 );
               },

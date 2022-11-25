@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gsg_second_project/screens/allAchievements.dart';
 import 'package:gsg_second_project/screens/mainScreen.dart';
 
 class TopOfAllAchievements extends StatelessWidget {
@@ -21,10 +22,10 @@ class TopOfAllAchievements extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: TextButton(
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.pop(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MainScreen(),
+                    builder: (context) => AllAchievements(),
                   ),
                 );
               },

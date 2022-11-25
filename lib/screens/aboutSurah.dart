@@ -14,7 +14,10 @@ class AboutSurah extends StatelessWidget {
       backgroundColor: Colors.grey.shade900,
       body: SingleChildScrollView(
         child: Column(
-          children: [TopOfAboutSurah(2), TextofAboutSurah()],
+          children: [
+            TopOfAboutSurah(2),
+            TextofAboutSurah(),
+          ],
         ),
       ),
     );
