@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gsg_second_project/sqlHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/quran.dart' as quran;
@@ -139,27 +140,25 @@ class Part extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        numOfAchievements.toString(),
-                        style: TextStyle(
-                          fontSize: 38,
-                          decoration: TextDecoration.none,
-                          color: value.isDarkTheme == 1
-                              ? Colors.grey.shade400
-                              : Colors.black,
-                        ),
+                    Text(
+                      numOfAchievements.toString(),
+                      style: TextStyle(
+                        fontSize:
+                            (context.locale == const Locale('en')) ? 38 : 26,
+                        decoration: TextDecoration.none,
+                        color: value.isDarkTheme == 1
+                            ? Colors.grey.shade400
+                            : Colors.black,
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        (context.locale == const Locale('en'))
-                            ? quran.getSurahNameArabic(numOfSurah)
-                            : quran.getSurahName(numOfSurah),
-                        style: TextStyle(
-                          fontSize: 38,
+                    Text(
+                      (context.locale == const Locale('en'))
+                          ? quran.getSurahNameArabic(numOfSurah)
+                          : quran.getSurahName(numOfSurah),
+                      style: GoogleFonts.arefRuqaa(
+                        textStyle: TextStyle(
+                          fontSize:
+                              (context.locale == const Locale('en')) ? 38 : 26,
                           decoration: TextDecoration.none,
                           color: value.isDarkTheme == 1
                               ? Colors.grey.shade400
