@@ -5,6 +5,7 @@ import 'package:gsg_second_project/screens/allAchievements.dart';
 import 'package:gsg_second_project/screens/mainScreen.dart';
 import 'package:gsg_second_project/screens/oneNoteScreen.dart';
 import 'package:provider/provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class TopOfOneNoteScreen extends StatelessWidget {
   final String cat;
@@ -63,7 +64,7 @@ class TopOfOneNoteScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      "ملاحظاتك",
+                      "yourNote".tr(),
                       style: TextStyle(
                         decoration: TextDecoration.none,
                         fontSize: 28,

@@ -30,6 +30,40 @@ class TextOfSurah extends StatelessWidget {
               return ListTile(
                 title: Container(
                   decoration: BoxDecoration(
+                    gradient: value.isDarkTheme == 1
+                        ? const LinearGradient(
+                            colors: [
+                              Color.fromARGB(255, 7, 66, 22),
+                              Color.fromARGB(255, 14, 94, 34),
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.center,
+                          )
+                        : LinearGradient(
+                            colors: [
+                              Colors.purple.shade300,
+                              Colors.blue.shade500,
+                            ],
+                            begin: Alignment.bottomLeft,
+                            end: Alignment.center,
+                          ),
+                    boxShadow: [
+                      value.isDarkTheme == 1
+                          ? BoxShadow(
+                              color: Colors.grey.shade700.withOpacity(0.0),
+                              spreadRadius: 0,
+                              blurRadius: 0,
+                              offset: const Offset(
+                                  0, 3), // changes position of shadow
+                            )
+                          : BoxShadow(
+                              color: Colors.blue.withOpacity(0.2),
+                              spreadRadius: 3,
+                              blurRadius: 2,
+                              offset: const Offset(
+                                  0, 3), // changes position of shadow
+                            ),
+                    ],
                     color: value.isDarkTheme == 1
                         ? const Color.fromARGB(255, 18, 18, 18)
                         : Colors.blue.shade700,

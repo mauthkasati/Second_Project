@@ -20,5 +20,15 @@
     "verseNum":"الآية رقم ",
     "readSurahTop":"اقرا سورة",
     "ayat":"آيات",
-    "about":"عن سورة"
+    "about":"عن سورة",
+    "addNotes":"اضف ملاحظاتك",
+    "cat":"التصنيف",
+    "writeNote":"اكتب ملاحظتك",
+    "yourNote":"ملاحظتك",
+    "noteOnSurah":"ملاحظة على سورة",
+    "note":"الملاحظة",
+    "update":"عدل ملاحظاتك",
+    "updateOnSurah":"عدل ملاحظتك على سورة",
+    "beforeUpdate":"قبل التعديل",
+    "afterUpdate":"بعد التعديل"
 }

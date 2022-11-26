@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:quran/quran.dart' as quran;
 import '../widgets/allAchievementsWidget/oneOfAllAchievements.dart';
 import '../widgets/updateNoteScreenWidgets/topOfUpdateNoteScreen.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class UpdateNoteScreen extends StatelessWidget {
   final int verseID;
@@ -43,7 +44,7 @@ class UpdateNoteScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          'عدل ملاحظاتك على سورة ${quran.getSurahNameArabic(value.numOfCurrent)}',
+                          '${'updateOnSurah'.tr()} ${quran.getSurahNameArabic(value.numOfCurrent)}',
                           style: TextStyle(
                               fontSize: 16,
                               color: value.isDarkTheme == 1

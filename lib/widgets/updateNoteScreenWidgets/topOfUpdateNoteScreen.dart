@@ -4,6 +4,7 @@ import 'package:gsg_second_project/providers/mainScreenProvider.dart';
 import 'package:gsg_second_project/screens/mainScreen.dart';
 import 'package:gsg_second_project/screens/updateNoteScreen.dart';
 import 'package:provider/provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class TopOfUpdateNoteScreen extends StatelessWidget {
   final int verseID;
@@ -62,7 +63,7 @@ class TopOfUpdateNoteScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      "عدل ملاحظاتك",
+                      "update".tr(),
                       style: TextStyle(
                         decoration: TextDecoration.none,
                         fontSize: 28,

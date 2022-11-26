@@ -26,6 +26,40 @@ class OneAchievement extends StatelessWidget {
           height: height / 8,
           width: width * 7 / 8,
           decoration: BoxDecoration(
+              gradient: value.isDarkTheme == 1
+                  ? const LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 10, 10, 10),
+                        Color.fromARGB(255, 30, 30, 30),
+                      ],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                    )
+                  : LinearGradient(
+                      colors: [
+                        Colors.purple.shade300,
+                        Colors.blue.shade300,
+                      ],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.center,
+                    ),
+              boxShadow: [
+                value.isDarkTheme == 1
+                    ? BoxShadow(
+                        color: Colors.grey.shade700.withOpacity(0.0),
+                        spreadRadius: 0,
+                        blurRadius: 0,
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
+                      )
+                    : BoxShadow(
+                        color: Colors.blue.withOpacity(0.2),
+                        spreadRadius: 3,
+                        blurRadius: 2,
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
+                      ),
+              ],
               border: Border.all(
                 width: 1,
                 color: value.isDarkTheme == 1

@@ -9,6 +9,7 @@ import 'package:gsg_second_project/screens/addNoteScreen.dart';
 import 'package:gsg_second_project/sqlHelper.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/quran.dart' as quran;
+import 'package:easy_localization/easy_localization.dart';
 
 class AddNoteForm extends StatelessWidget {
   final myController = TextEditingController();
@@ -29,6 +30,38 @@ class AddNoteForm extends StatelessWidget {
           height: h * 5 / 7,
           width: w * 5 / 6,
           decoration: BoxDecoration(
+            gradient: value.isDarkTheme == 1
+                ? const LinearGradient(
+                    colors: [
+                      Color.fromARGB(255, 2, 32, 9),
+                      Color.fromARGB(255, 14, 94, 34),
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  )
+                : LinearGradient(
+                    colors: [
+                      Colors.purple.shade300,
+                      Colors.blue.shade500,
+                    ],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.center,
+                  ),
+            boxShadow: [
+              value.isDarkTheme == 1
+                  ? BoxShadow(
+                      color: Colors.grey.shade700.withOpacity(0.0),
+                      spreadRadius: 0,
+                      blurRadius: 0,
+                      offset: const Offset(0, 3), // changes position of shadow
+                    )
+                  : BoxShadow(
+                      color: Colors.blue.withOpacity(0.2),
+                      spreadRadius: 3,
+                      blurRadius: 2,
+                      offset: const Offset(0, 3), // changes position of shadow
+                    ),
+            ],
             borderRadius: BorderRadius.circular(10),
             color: value.isDarkTheme == 1
                 ? const Color.fromARGB(255, 18, 18, 18)
@@ -37,9 +70,11 @@ class AddNoteForm extends StatelessWidget {
           child: Column(
             children: [
               Align(
-                alignment: Alignment.centerRight,
+                alignment: (context.locale == const Locale('en'))
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
                 child: Text(
-                  ' :  التصنيف',
+                  'cat'.tr(),
                   style: TextStyle(
                     fontSize: 14,
                     color: value.isDarkTheme == 1
@@ -51,6 +86,9 @@ class AddNoteForm extends StatelessWidget {
               Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(
+                  color: value.isDarkTheme == 1
+                      ? Colors.grey.shade900
+                      : Colors.blue.shade300,
                   border: Border.all(
                     width: 1,
                     color: value.isDarkTheme == 1
@@ -106,9 +144,11 @@ class AddNoteForm extends StatelessWidget {
                 // ),
               ),
               Align(
-                alignment: Alignment.centerRight,
+                alignment: (context.locale == const Locale('en'))
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
                 child: Text(
-                  ' : رقم الآية',
+                  'verseNum'.tr(),
                   style: TextStyle(
                     fontSize: 14,
                     color: value.isDarkTheme == 1
@@ -120,6 +160,9 @@ class AddNoteForm extends StatelessWidget {
               Container(
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
+                    color: value.isDarkTheme == 1
+                        ? Colors.grey.shade900
+                        : Colors.blue.shade300,
                     border: Border.all(
                       width: 1,
                       color: value.isDarkTheme == 1
@@ -142,9 +185,11 @@ class AddNoteForm extends StatelessWidget {
                     ),
                   )),
               Align(
-                alignment: Alignment.centerRight,
+                alignment: (context.locale == const Locale('en'))
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
                 child: Text(
-                  ' : اكتب ملاحظتك',
+                  'writeNote'.tr(),
                   style: TextStyle(
                     fontSize: 14,
                     color: value.isDarkTheme == 1
@@ -153,11 +198,15 @@ class AddNoteForm extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 5),
               Container(
                 padding: EdgeInsets.all(20),
                 height: h / 3.5,
                 width: w * 4 / 6,
                 decoration: BoxDecoration(
+                  color: value.isDarkTheme == 1
+                      ? Colors.grey.shade900
+                      : Colors.blue.shade300,
                   border: Border.all(
                     width: 1,
                     color: value.isDarkTheme == 1
@@ -220,6 +269,7 @@ class AddNoteForm extends StatelessWidget {
                   log('response massage : $response');
                   log('response massage : $response2');
                   log('response massage : $response3');
+                  // ignore: use_build_context_synchronously
                   Navigator.pop(
                     context,
                     MaterialPageRoute(
@@ -230,8 +280,11 @@ class AddNoteForm extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
-                      title: Center(child: Text("تمت الاضافة بنجاح")),
-                      content: Icon(
+                      title: Center(
+                          child: Text((context.locale == const Locale('en'))
+                              ? "تمت الاضافة بنجاح"
+                              : "Added Successfully")),
+                      content: const Icon(
                         Icons.check_circle_outline,
                         size: 30,
                       ),
@@ -240,7 +293,11 @@ class AddNoteForm extends StatelessWidget {
                           onPressed: () {
                             Navigator.of(context).pop();
                           },
-                          child: const Text('حسناً'),
+                          child: Text(
+                            (context.locale == const Locale('en'))
+                                ? "حسناً"
+                                : "OK",
+                          ),
                         ),
                       ],
                     ),

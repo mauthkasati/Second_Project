@@ -31,6 +31,38 @@ class Operation extends StatelessWidget {
             const EdgeInsets.only(top: 16, bottom: 16, left: 25, right: 25),
         margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
+          gradient: value.isDarkTheme == 1
+              ? const LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 10, 10, 10),
+                    Color.fromARGB(255, 30, 30, 30),
+                  ],
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                )
+              : LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 149, 113, 197),
+                    Colors.blue.shade300,
+                  ],
+                  begin: Alignment.topRight,
+                  end: Alignment.center,
+                ),
+          boxShadow: [
+            value.isDarkTheme == 1
+                ? BoxShadow(
+                    color: Colors.grey.shade700.withOpacity(0.0),
+                    spreadRadius: 0,
+                    blurRadius: 0,
+                    offset: const Offset(0, 3), // changes position of shadow
+                  )
+                : BoxShadow(
+                    color: Colors.blue.withOpacity(0.2),
+                    spreadRadius: 3,
+                    blurRadius: 2,
+                    offset: const Offset(0, 3), // changes position of shadow
+                  ),
+          ],
           border: Border.all(
             width: 1,
             color: value.isDarkTheme == 1

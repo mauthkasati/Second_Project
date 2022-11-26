@@ -65,8 +65,8 @@ class MainScreen extends StatelessWidget {
                       children: numsOfSurahsList.map((e) {
                         return Part(
                           e,
-                          value.forPartWidgetList[114 - e]['numOfAchPerSurah'],
-                          numOfVerses[114 - e],
+                          value.forPartWidgetList[e - 1]['numOfAchPerSurah'],
+                          numOfVerses[e - 1],
                         );
                       }).toList(),
                     ),

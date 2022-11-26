@@ -20,5 +20,15 @@
     "verseNum":"Verse Number",
     "readSurahTop":"Read Surah of ",
     "ayat":"verses",
-    "about":"About Suarh of"
+    "about":"About Suarh of",
+    "addNotes":"Add Your Notes",
+    "cat":"Category",
+    "writeNote":"Write your Note",
+    "yourNote":"Your Note",
+    "noteOnSurah":"Note on Surah of",
+    "note":"The Note",
+    "update":"Update Your Notes",
+    "updateOnSurah":"Update Your Note On Surah of",
+    "beforeUpdate":"Before Updating",
+    "afterUpdate":"After Updating"
 }
